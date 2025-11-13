@@ -1,0 +1,32 @@
+<h2>Apply for Job</h2>
+
+<%= form_with model: @application, url: applications_path do |f| %>
+  <%= f.hidden_field :job_id, value: params[:job_id] %>
+
+  <div class="mb-3">
+    <%= f.label :name %>
+    <%= f.text_field :name, class: "form-control" %>
+  </div>
+
+  <div class="mb-3">
+    <%= f.label :email %>
+    <%= f.email_field :email, class: "form-control" %>
+  </div>
+
+  <div class="mb-3">
+    <%= f.label :phone %>
+    <%= f.telephone_field :phone, class: "form-control" %>
+  </div>
+
+  <div class="mb-3">
+    <%= f.label :resume_url, "Resume (Drive/Link)" %>
+    <%= f.text_field :resume_url, class: "form-control" %>
+  </div>
+
+  <div class="mb-3">
+    <%= f.label :message %>
+    <%= f.text_area :message, class: "form-control" %>
+  </div>
+
+  <%= f.submit "Submit Application", class: "btn btn-primary" %>
+<% end %>

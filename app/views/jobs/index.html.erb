@@ -1,0 +1,11 @@
+<h2>Careers</h2>
+
+<div class="list-group">
+  <% @jobs.each do |job| %>
+    <%= link_to job_path(job), class: "list-group-item list-group-item-action" do %>
+      <h5 class="mb-1"><%= job.title %></h5>
+      <small class="text-muted"><%= job.location %></small>
+      <p class="mb-1 text-muted"><%= truncate(job.description, length: 140) %></p>
+    <% end %>
+  <% end %>
+</div>

@@ -1,0 +1,57 @@
+<div class="row align-items-center mb-5">
+  <div class="col-md-7">
+    <h1 class="display-5 fw-bold">Innovating the Future with Rhinocus Tech Labs</h1>
+    <p class="lead text-muted">
+      We build enterprise-grade web, mobile, and AI-powered solutions tailored for modern businesses.
+    </p>
+
+    <%= link_to "Our Services", services_path, class: "btn btn-primary me-2" %>
+    <%= link_to "Contact Us", new_contact_message_path, class: "btn btn-outline-primary" %>
+  </div>
+
+  <div class="col-md-5">
+    <% if @featured_product %>
+      <div class="card shadow-sm">
+        <div class="card-body">
+          <h5><%= @featured_product.name %></h5>
+          <p class="text-muted"><%= truncate(@featured_product.description, length: 150) %></p>
+          <%= link_to "View Product", product_path(@featured_product), class: "stretched-link" %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
+
+<hr>
+
+<h3 class="mb-3">Our Services</h3>
+<div class="row">
+  <% @services.each do |service| %>
+    <div class="col-md-4 mb-3">
+      <div class="card h-100 shadow-sm">
+        <div class="card-body">
+          <h5><%= service.title %></h5>
+          <p class="text-muted"><%= truncate(service.description, length: 120) %></p>
+          <%= link_to "Learn More", service_path(service), class: "btn btn-sm btn-outline-primary" %>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>
+
+<hr>
+
+<h3 class="mb-3">Open Positions</h3>
+<div class="row">
+  <% @jobs.each do |job| %>
+    <div class="col-md-4 mb-3">
+      <div class="card h-100 shadow-sm">
+        <div class="card-body">
+          <h5><%= job.title %></h5>
+          <p class="text-muted"><%= truncate(job.description, length: 120) %></p>
+          <%= link_to "Apply", job_path(job), class: "btn btn-sm btn-primary" %>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>
