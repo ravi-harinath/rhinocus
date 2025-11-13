@@ -1,0 +1,55 @@
+<h2 class="mb-4">Admin Dashboard</h2>
+
+<div class="row g-4">
+
+  <div class="col-md-4">
+    <div class="card shadow-sm border-0">
+      <div class="card-body text-center">
+        <h3><%= @services_count %></h3>
+        <p class="text-muted">Services</p>
+        <%= link_to "Manage Services", admin_services_path, class: "btn btn-primary btn-sm" %>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-4">
+    <div class="card shadow-sm border-0">
+      <div class="card-body text-center">
+        <h3><%= @products_count %></h3>
+        <p class="text-muted">Products</p>
+        <%= link_to "Manage Products", admin_products_path, class: "btn btn-primary btn-sm" %>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-4">
+    <div class="card shadow-sm border-0">
+      <div class="card-body text-center">
+        <h3><%= @jobs_count %></h3>
+        <p class="text-muted">Job Openings</p>
+        <%= link_to "Manage Jobs", admin_jobs_path, class: "btn btn-primary btn-sm" %>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-6">
+    <div class="card shadow-sm border-0">
+      <div class="card-body text-center">
+        <h3><%= @applications_count %></h3>
+        <p class="text-muted">Applications Received</p>
+        <%= link_to "View Applications", admin_applications_path, class: "btn btn-primary btn-sm" %>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-6">
+    <div class="card shadow-sm border-0">
+      <div class="card-body text-center">
+        <h3><%= @contact_messages_count %></h3>
+        <p class="text-muted">Contact Messages</p>
+        <%= link_to "View Messages", admin_contact_messages_path, class: "btn btn-primary btn-sm" %>
+      </div>
+    </div>
+  </div>
+
+</div>

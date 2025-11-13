@@ -1,0 +1,28 @@
+<h2>Services</h2>
+
+<div class="mb-3">
+  <%= link_to "Add New Service", new_admin_service_path, class: "btn btn-primary" %>
+</div>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Description</th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @services.each do |service| %>
+      <tr>
+        <td><%= service.title %></td>
+        <td><%= truncate(service.description, length: 80) %></td>
+        <td class="text-end">
+          <%= link_to "Edit", edit_admin_service_path(service), class: "btn btn-sm btn-warning" %>
+          <%= link_to "Delete", admin_service_path(service), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" }, class: "btn btn-sm btn-danger" %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

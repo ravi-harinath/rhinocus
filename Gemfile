@@ -68,3 +68,5 @@ gem "simple_form"
 # Email preview in development
 gem "letter_opener", group: :development
 
+
+gem "devise", "~> 4.9"

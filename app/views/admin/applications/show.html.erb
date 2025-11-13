@@ -1,0 +1,27 @@
+<h2>Application Details</h2>
+
+<div class="card shadow-sm mb-4">
+  <div class="card-body">
+    <h4><%= @application.name %></h4>
+
+    <p><strong>Email:</strong> <%= @application.email %></p>
+    <p><strong>Phone:</strong> <%= @application.phone %></p>
+    <p><strong>Applied for:</strong> <%= @application.job&.title || "N/A" %></p>
+
+    <% if @application.resume_url.present? %>
+      <p><strong>Resume:</strong> <a href="<%= @application.resume_url %>" target="_blank">View Resume</a></p>
+    <% end %>
+
+    <p><strong>Message:</strong></p>
+    <p class="text-muted"><%= simple_format(@application.message) %></p>
+
+    <hr>
+
+    <div class="text-end">
+      <%= link_to "Back to Applications", admin_applications_path, class: "btn btn-secondary" %>
+      <%= link_to "Delete", admin_application_path(@application),
+            data: { turbo_method: :delete, turbo_confirm: "Are you sure?" },
+            class: "btn btn-danger" %>
+    </div>
+  </div>
+</div>

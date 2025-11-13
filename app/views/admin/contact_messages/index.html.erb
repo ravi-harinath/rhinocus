@@ -1,0 +1,33 @@
+<h2>Contact Messages</h2>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Email</th>
+      <th>Phone</th>
+      <th>Received</th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @contact_messages.each do |msg| %>
+      <tr>
+        <td><%= msg.name %></td>
+        <td><%= msg.email %></td>
+        <td><%= msg.phone %></td>
+        <td><%= msg.created_at.strftime("%d %b %Y") %></td>
+
+        <td class="text-end">
+          <%= link_to "View", admin_contact_message_path(msg),
+                class: "btn btn-sm btn-primary" %>
+
+          <%= link_to "Delete", admin_contact_message_path(msg),
+                data: { turbo_method: :delete, turbo_confirm: "Are you sure?" },
+                class: "btn btn-sm btn-danger" %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

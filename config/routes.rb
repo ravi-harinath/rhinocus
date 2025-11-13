@@ -1,8 +1,11 @@
 Rails.application.routes.draw do
+  # Devise Admin authentication
+  devise_for :admins
+
   # Health checks
   get "up" => "rails/health#show", as: :rails_health_check
 
-  # PWA (default, keep it)
+  # PWA
   get "service-worker" => "rails/pwa#service_worker", as: :pwa_service_worker
   get "manifest" => "rails/pwa#manifest", as: :pwa_manifest
 
@@ -18,4 +21,14 @@ Rails.application.routes.draw do
   resources :jobs, only: [:index, :show]
   resources :applications, only: [:new, :create]
   resources :contact_messages, only: [:new, :create]
+
+  # Admin Panel Routes
+  namespace :admin do
+    get "dashboard", to: "dashboard#index"
+    resources :services
+    resources :products
+    resources :jobs
+    resources :applications, only: [:index, :show, :destroy]
+    resources :contact_messages, only: [:index, :show, :destroy]
+  end
 end

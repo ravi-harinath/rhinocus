@@ -1,0 +1,29 @@
+<%= form_with model: [:admin, job] do |f| %>
+
+  <div class="mb-3">
+    <%= f.label :title %>
+    <%= f.text_field :title, class: "form-control" %>
+  </div>
+
+  <div class="mb-3">
+    <%= f.label :location %>
+    <%= f.text_field :location, class: "form-control" %>
+  </div>
+
+  <div class="mb-3">
+    <%= f.label :exp_required, "Experience Required" %>
+    <%= f.text_field :exp_required, class: "form-control" %>
+  </div>
+
+  <div class="mb-3">
+    <%= f.label :skills %>
+    <%= f.text_area :skills, class: "form-control", rows: 4 %>
+  </div>
+
+  <div class="mb-3">
+    <%= f.label :description %>
+    <%= f.text_area :description, class: "form-control", rows: 6 %>
+  </div>
+
+  <%= f.submit class: "btn btn-primary" %>
+<% end %>

@@ -1,0 +1,30 @@
+<h2>Products</h2>
+
+<div class="mb-3">
+  <%= link_to "Add New Product", new_admin_product_path, class: "btn btn-primary" %>
+</div>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @products.each do |product| %>
+      <tr>
+        <td><%= product.name %></td>
+        <td><%= truncate(product.description, length: 90) %></td>
+        <td class="text-end">
+          <%= link_to "Edit", edit_admin_product_path(product), class: "btn btn-sm btn-warning" %>
+          <%= link_to "Delete", admin_product_path(product), 
+                data: { turbo_method: :delete, turbo_confirm: "Are you sure?" }, 
+                class: "btn btn-sm btn-danger" %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

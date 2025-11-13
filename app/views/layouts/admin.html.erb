@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Admin Panel - Rhinocus Tech Labs</title>
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
+
+  <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+  <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
+</head>
+
+<body class="bg-light">
+
+<div class="d-flex">
+  
+  <!-- SIDEBAR -->
+  <div class="bg-dark text-white p-3" style="width: 230px; min-height: 100vh;">
+    <h4 class="text-center mb-4">Admin</h4>
+
+    <ul class="nav flex-column">
+
+      <li class="nav-item mb-2">
+        <%= link_to "Dashboard", admin_dashboard_path, class: "nav-link text-white" %>
+      </li>
+
+      <li class="nav-item mb-2">
+        <%= link_to "Services", admin_services_path, class: "nav-link text-white" %>
+      </li>
+
+      <li class="nav-item mb-2">
+        <%= link_to "Products", admin_products_path, class: "nav-link text-white" %>
+      </li>
+
+      <li class="nav-item mb-2">
+        <%= link_to "Jobs", admin_jobs_path, class: "nav-link text-white" %>
+      </li>
+
+      <li class="nav-item mb-2">
+        <%= link_to "Applications", admin_applications_path, class: "nav-link text-white" %>
+      </li>
+
+      <li class="nav-item mb-2">
+        <%= link_to "Messages", admin_contact_messages_path, class: "nav-link text-white" %>
+      </li>
+
+      <hr class="border-secondary">
+
+      <li class="nav-item mt-3">
+        <%= link_to "Logout", destroy_admin_session_path,
+            method: :delete,
+            data: { turbo_method: :delete },
+            class: "btn btn-outline-light w-100" %>
+      </li>
+    </ul>
+  </div>
+
+  <!-- MAIN CONTENT -->
+  <div class="flex-grow-1 p-4">
+    <%= yield %>
+  </div>
+
+</div>
+
+</body>
+</html>
