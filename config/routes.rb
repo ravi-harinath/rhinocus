@@ -16,11 +16,11 @@ Rails.application.routes.draw do
   get "/about", to: "home#about"
 
   # Main resources
-  resources :services, only: [:index, :show]
-  resources :products, only: [:index, :show]
-  resources :jobs, only: [:index, :show]
-  resources :applications, only: [:new, :create]
-  resources :contact_messages, only: [:new, :create]
+  resources :services, only: [ :index, :show ]
+  resources :products, only: [ :index, :show ]
+  resources :jobs, only: [ :index, :show ]
+  resources :applications, only: [ :new, :create ]
+  resources :contact_messages, only: [ :new, :create ]
 
   # Admin Panel Routes
   namespace :admin do
@@ -28,7 +28,7 @@ Rails.application.routes.draw do
     resources :services
     resources :products
     resources :jobs
-    resources :applications, only: [:index, :show, :destroy]
-    resources :contact_messages, only: [:index, :show, :destroy]
+    resources :applications, only: [ :index, :show, :destroy ]
+    resources :contact_messages, only: [ :index, :show, :destroy ]
   end
 end
